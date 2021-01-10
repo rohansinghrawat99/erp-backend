@@ -60,8 +60,8 @@ export class Application {
     }
 
     start(): void {
-        this.APP.listen(this.PORT, () => {
-            console.log(`App Started on PORT: ${this.PORT}`);
+        this.APP.listen(process.env.PORT, () => {
+            console.log(`App Started on PORT: ${process.env.PORT}`);
         });
     }
 
@@ -89,7 +89,7 @@ export class Application {
 
     // Express configuration
     private initGlobalMiddleware(): void {
-        this.APP.set("port", process.env.PORT || ENV_APP_PORT_REST);
+        this.APP.set("port", process.env.PORT);
         this.APP.use(bodyParser.json());
         this.APP.use(bodyParser.urlencoded({extended: true}));
         this.APP.use(compression({
