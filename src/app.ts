@@ -89,7 +89,7 @@ export class Application {
 
     // Express configuration
     private initGlobalMiddleware(): void {
-        this.APP.set("port", process.env.PORT);
+        this.APP.set("port", this.PORT);
         this.APP.use(bodyParser.json());
         this.APP.use(bodyParser.urlencoded({extended: true}));
         this.APP.use(compression({
